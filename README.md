@@ -47,6 +47,9 @@ Assuming you are running in a empty folder ( Let say 'Data' )
 Run all you Flickr image extraction from there 
 The folder will be named after the query and all image will be in it 
 
+
+## Part II : Creating pytorch ImageFolder like Structure
+
 Now to convert this folder into PyTorch Image Folder 
 Run below comand
 
