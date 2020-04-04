@@ -3,14 +3,14 @@ Script for getting images from Flickr for image classification and restructure t
 
 This consists of two parts 
 
-1. Fetching images form Flikr for each class you want to classify 
+1. Fetching images form Flickr for each class you want to classify 
 
 2. Restructuring the data retrived into pytorch Image folder structure 
 
-## Part I : Fetching images form Flikr
+## Part I : Fetching images form Flickr
 
 There are two ways to fetch results from Flicker 
- ### 1. Using the python FlickerAPI module .
+ ### 1. Using the python FlickrAPI module .
  Where you sign-in register in Flickr website and get API_KEY to do queries
  Link for this approach 
  Register - 
@@ -37,7 +37,7 @@ Steps to get API_KEY without signing in to Flickr
 
 
 Running the python script
-```python
+```shell
 python Flikcr.py --api_key  "c986393632f57c7267cc382e5d351b8c" --search "lion" --n 500 
 ```
 
@@ -53,7 +53,7 @@ The folder will be named after the query and all image will be in it
 Now to convert this folder into PyTorch Image Folder 
 Run below comand
 
-```python
+```shell
 python Torchify.py --src_path  "./data" --dest_path "./classfication" --train 0.6 --val 0.2
 ```
 The script will shuffle the images and stores them in pytorch Image Folder structure
@@ -63,7 +63,7 @@ Once it finished you are good to go.
 
 You can load this in pytorch as below
 ```python
-img_trans - transforms.Compose([transforms.Resize((64,64),transforms.ToTensor(),transforms.Normalize()]
+img_transforms = transforms.Compose([transforms.Resize((64,64),transforms.ToTensor(),transforms.Normalize()]
 train_data = torchvision.datasets.ImageFolder("./classification" , transforms = img_transforms)
 ```
 
